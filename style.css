@@ -7,7 +7,7 @@
 
 button{
     border: 1px solid;
-    background-color: #f5f5f5;
+    background-color: #5f0404;
     background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     color: #333;
@@ -84,28 +84,37 @@ label{
 
 .calendar{
     margin: 30px 100px;
+    margin-bottom: 0;
 }
 
 table{
-    width: 100%;
-    margin: 20px ;
+    margin: 20px;
+    margin-bottom: 0;
     border-collapse: collapse;
 }
 
+.myClass{
+    position: relative;
+}
 
 td, th{
     font-size: 16px;
     color: rgb(180, 177, 177);
-    height: 100px;
-    width: 130px;
+    height: 75px;
+    width: 150px;
     border: 1px solid #DEDEDE;
     text-align: left;
     vertical-align: top;
     padding: 5px;
 }
 
+.myClass:hover{
+    background:  rgb(150, 149, 149);
+    color: rgb(255, 255, 255);
+}
+
 .todayTD{
-    background: blueviolet;
+    background: rgb(110, 102, 85);
 }
 th{
     height: 15px;

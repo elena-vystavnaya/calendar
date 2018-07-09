@@ -7,11 +7,14 @@
     <title>Календарь</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel = 'stylesheet' href="animate.css">
+
    <!-- <link rel="stylesheet/less" type="text/css" href="styles.less">-->
 </head>
 
 <body>
-    <!--шапка сайта-->
+        
+    <!--шапка сайта
     <div class="header">
         <div class="add-group-button">
             <button type="button" class="add" onclick="addEvent()">Добавить</button>
@@ -23,7 +26,7 @@
             </label>
 
         </div>
-    </div>
+    </div>-->
 
     <!--Календарь-->
     <div class="calendar">
@@ -53,7 +56,7 @@
     <from id="addEvent-form">
         <input type="text" autofocus required placeholder="Введите заголовок события"><br>
         <textarea placeholder="Введите описание события"></textarea>
-        <button type="submit">Отправить</button>
+        <button type="submit" class="closeForm">Отправить</button>
     </from>
 
     <!--sync-->

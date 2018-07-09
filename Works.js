@@ -70,6 +70,7 @@ $(document).ready(function(){
                     fillTD(td, days.shift());
                     td.addClass('myClass');
                 }
+                tr.addClass('trClass')
                 tr.append(td); 
             }
             table.append(tr);    
@@ -109,15 +110,32 @@ $(document).ready(function(){
     };
 
     function setCellsClickHandler(){
-        $('.myClass').click(function(){
-            var form = $('#addEvent-form');
-            var cell = $(this);
-            //'position': 'absolute',
-            form.css({'display': 'block',  'top': cell.position().top, 'left': cell.position().left});
-            cell.css('position', 'relative');
-            currentDate.setDate(cell.html());
-        });    
+            $('.myClass:nth-child(-n+6)').click(function(){             
+                var form = $('#addEvent-form');
+                var cell = $(this);
+                form.css({'display': 'block',  'top': cell.position().top + 50, 'left': cell.position().left + 180});
+                //form.addClass('animated fadeInDown')
+                currentDate.setDate(cell.html()); 
+        });  
+            $('.myClass:nth-child(n+6)').click(function(){
+                var form = $('#addEvent-form');
+                var cell = $(this);
+                form.css({'display': 'block',  'top': cell.position().top + 50, 'left': cell.position().left - 320});
+                currentDate.setDate(cell.html());
+            });  
     };
+
+    $('.closeForm').click(function(){
+        var form = $('#addEvent-form');
+        form.css({'display': 'none'});
+    }); 
+    
+  /*  function setCellsClickHandler(){
+        $('td').click(function(){
+            var form = $('#addEvent-form');
+            //'position': 'absolute',
+            form.css({'display': 'block'});
+        }); */
 
     createTable(currentDate);
     setInnerHTML(currentDate);
