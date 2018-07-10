@@ -134,7 +134,7 @@ $(document).ready(function(){
 		else
 			form.css({ 'display': 'block', 'top': cell.position().top + 50, 'left': cell.position().left + 180 });
 
-		currentDate.setDate(cell.html());
+		currentDate.setDate(cell.html().split(' ')[0]);
 
 		$('.form-header').text(currentDate.toLocaleDateString());
 	};
@@ -146,11 +146,10 @@ $(document).ready(function(){
 		var date = currentCell.html().split(' ')[0];
 
 		currentCell.html(date + " <br />" + header.value + "<br />" + description.value);
-		header.placeholder = "Введите заголовок события";
-		header.value = "";
-		description.placeholder = "Введите описание события";
-		description.value = "";
 		form.css({ 'display': 'none' });
+
+		header.value = "";
+		description.value = "";
     }); 
 
     createTable(currentDate);
