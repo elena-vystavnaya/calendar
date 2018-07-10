@@ -1,7 +1,7 @@
 $(document).ready(function(){
     var today = new Date();
-    var currentDate = new Date(); //создаем переменную для текущей даты
- 
+	var currentDate = new Date(); //создаем переменную для текущей даты
+
 //var locale = window.navigator.language;
 
     var getLastDayOfMonth = function (year, month) {
@@ -44,7 +44,8 @@ $(document).ready(function(){
         
         var days = getAllDaysOfMonth(yyyy, mm);
         var weekdays = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-        var table = $('<table>');
+		var table = $('<table>');
+		table.addClass("calendarTable");
         var tr = $('<tr>');
 
         //заполняем шапку таблицы
@@ -109,70 +110,38 @@ $(document).ready(function(){
         return newDate;
     };
 
-    function setCellsClickHandler(){
-            $('.myClass:nth-child(-n+6)').click(function(){             
-                var form = $('#addEvent-form');
-                var cell = $(this);
-                form.css({'display': 'block',  'top': cell.position().top + 50, 'left': cell.position().left + 180});
-                //form.addClass('animated fadeInDown')
-                currentDate.setDate(cell.html()); 
-        });  
-            $('.myClass:nth-child(n+6)').click(function(){
-                var form = $('#addEvent-form');
-                var cell = $(this);
-                form.css({'display': 'block',  'top': cell.position().top + 50, 'left': cell.position().left - 320});
-                currentDate.setDate(cell.html());
-            });  
-    };
+	function setCellsClickHandler() {
+		$('.myClass').click(function () {
+			var cell = $(this);
+
+			var a = cell["0"].parentElement;
+			var i = cell["0"].parentElement.rowIndex;
+			var j = cell["0"].cellIndex;
+
+			showForm(cell, i, j);
+		}); 
+	};
+
+	function showForm(cell, i, j) {
+		var form = $('#addEvent-form');
+
+		if (i < 4 && j >= 5)
+			form.css({ 'display': 'block', 'top': cell.position().top + 50, 'left': cell.position().left - 320 });
+		else if (i >= 4 && j >= 5)
+			form.css({ 'display': 'block', 'top': cell.position().top - 250, 'left': cell.position().left - 320 });
+		else if (i >= 4 && j < 5)
+			form.css({ 'display': 'block', 'top': cell.position().top - 250, 'left': cell.position().left + 180 });
+		else
+			form.css({ 'display': 'block', 'top': cell.position().top + 50, 'left': cell.position().left + 180 });
+
+		currentDate.setDate(cell.html());
+	};
 
     $('.closeForm').click(function(){
         var form = $('#addEvent-form');
         form.css({'display': 'none'});
     }); 
-    
-  /*  function setCellsClickHandler(){
-        $('td').click(function(){
-            var form = $('#addEvent-form');
-            //'position': 'absolute',
-            form.css({'display': 'block'});
-        }); */
 
     createTable(currentDate);
     setInnerHTML(currentDate);
-    
-
-    // $('.myClass').click(function(){
-    //     var form = $('#addEvent-form');
-    //     form.css('display', 'block');
-    //     $(this).css('position', 'relative');
-    //     $(this).append(form);
-    //     $(this).off('click');
-    // });
 });
-
-
-/*
-var table = document.getElementsByTagName('table');
-
-
-table.onclick = function(event) {
-    var target = event.target; // где был клик?
-  
-    if (target.tagName != 'td') return; // не на TD? тогда не интересует
-  
-    
-    highlight(target); // подсветить TD
-  };
-});*/
-/*
-var newTable = document.getElementsByTagName('table');
-
-
-newTable.onclick = function(){   
-   var newTd = document.getElementsByTagName('td');
-   var form = document.getElementById('addEvent-form');
-   form.style.display = 'block';
-   var div = document.getElementById('addEvent');
-   newTd.appendChild(form);
- };*/
-

@@ -1,71 +1,53 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Календарь</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <link rel = 'stylesheet' href="animate.css">
-
-   <!-- <link rel="stylesheet/less" type="text/css" href="styles.less">-->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Календарь</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+	<link rel='stylesheet' href="animate.css">
 </head>
-
 <body>
-        
-    <!--шапка сайта
-    <div class="header">
-        <div class="add-group-button">
-            <button type="button" class="add" onclick="addEvent()">Добавить</button>
-            <button type="button" class="refresh">Обновить</button>
-            <label>
-                <span class="search-icon"></span>
-                </span> 
-                <input type="text" placeholder="Событие, дата или участник">
-            </label>
 
-        </div>
-    </div>-->
+	<!--шапка сайта
+	<div class="header">
+		<div class="add-group-button">
+			<button type="button" class="add" onclick="addEvent()">Добавить</button>
+			<button type="button" class="refresh">Обновить</button>
+			<label>
+				<span class="search-icon"></span>
+				</span>
+				<input type="text" placeholder="Событие, дата или участник">
+			</label>
 
-    <!--Календарь-->
-    <div class="calendar">
-        <div class="toolbar">
-            <button type="button" class="prev-button">
-                <span class="prev-button-icon"></span>
-            </button>
-            <h3 id="date"></h3>
-            <button type="button" class="next-button">
-                <span class="next-button-icon"></span>
-            </button>
-            <button type="button" class="today">Сегодня</button>
-        </div>        
-    </div>
+		</div>
+	</div>-->
+	<!--Календарь-->
+	<div class="calendar">
+		<div class="toolbar">
+			<button type="button" class="prev-button">
+				<span class="prev-button-icon"></span>
+			</button>
+			<h3 id="date"></h3>
+			<button type="button" class="next-button">
+				<span class="next-button-icon"></span>
+			</button>
+			<button type="button" class="today">Сегодня</button>
+		</div>
+	</div>
 
-    <div class = "calendar" id="calendarDiv"></div>
+	<div class="calendar" id="calendarDiv"></div>
 
-   <!--<form id="addEvent-form">
-        <button type="button" class="close" onclick="closeForm()">
-            <span class="icon-close"></span>
-        </button>
-        <input type="text" name="event" placeholder="Событие">
-        <textarea id="description" placeholder="Описание"></textarea>
-        <button type="button" class="ok" onclick="getEvent()">OK</button>
-    </form>-->
+	<from id="addEvent-form">
+		<h2 class="form-header"></h2>
+		<input type="text" autofocus required placeholder="Введите заголовок события"><br>
+		<textarea placeholder="Введите описание события"></textarea>
+		<button type="submit" class="closeForm">Отправить</button>
+	</from>
 
-    <from id="addEvent-form">
-        <input type="text" autofocus required placeholder="Введите заголовок события"><br>
-        <textarea placeholder="Введите описание события"></textarea>
-        <button type="submit" class="closeForm">Отправить</button>
-    </from>
-
-    <!--sync-->
-
-
-   <script src="jquery-3.3.1.min.js"></script>
-   <script src="Works.js"></script>
-
+	<script src="jquery-3.3.1.min.js"></script>
+	<script src="Works.js"></script>
 
 </body>
-
 </html>
