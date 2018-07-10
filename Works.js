@@ -1,7 +1,7 @@
 $(document).ready(function(){
     var today = new Date();
 	var currentDate = new Date(); //создаем переменную для текущей даты
-
+	var currentCell;
 //var locale = window.navigator.language;
 
     var getLastDayOfMonth = function (year, month) {
@@ -112,13 +112,13 @@ $(document).ready(function(){
 
 	function setCellsClickHandler() {
 		$('.myClass').click(function () {
-			var cell = $(this);
+			currentCell = $(this);
 
-			var a = cell["0"].parentElement;
-			var i = cell["0"].parentElement.rowIndex;
-			var j = cell["0"].cellIndex;
+			var a = currentCell["0"].parentElement;
+			var i = currentCell["0"].parentElement.rowIndex;
+			var j = currentCell["0"].cellIndex;
 
-			showForm(cell, i, j);
+			showForm(currentCell, i, j);
 		}); 
 	};
 
@@ -140,8 +140,17 @@ $(document).ready(function(){
 	};
 
     $('.closeForm').click(function(){
-        var form = $('#addEvent-form');
-        form.css({'display': 'none'});
+		var form = $('#addEvent-form');
+		var header = $('.event-header')[0];
+		var description = $('.event-description')[0];
+		var date = currentCell.html().split(' ')[0];
+
+		currentCell.html(date + " <br />" + header.value + "<br />" + description.value);
+		header.placeholder = "Введите заголовок события";
+		header.value = "";
+		description.placeholder = "Введите описание события";
+		description.value = "";
+		form.css({ 'display': 'none' });
     }); 
 
     createTable(currentDate);
