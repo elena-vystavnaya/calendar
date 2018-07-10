@@ -135,6 +135,8 @@ $(document).ready(function(){
 			form.css({ 'display': 'block', 'top': cell.position().top + 50, 'left': cell.position().left + 180 });
 
 		currentDate.setDate(cell.html());
+
+		$('.form-header').text(currentDate.toLocaleDateString());
 	};
 
     $('.closeForm').click(function(){
