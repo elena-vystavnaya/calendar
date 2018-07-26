@@ -141,16 +141,21 @@ $(document).ready(function(){
 
     $('.closeForm').click(function(){
 		var form = $('#addEvent-form');
-		var header = $('.event-header')[0];
+        var header = $('.event-header')[0];
 		var description = $('.event-description')[0];
 		var date = currentCell.html().split(' ')[0];
 
-		currentCell.html(date + " <br />" + header.value + "<br />" + description.value);
+        currentCell.html(date + " <br />" + header.value + "<br />" + description.value);
 		form.css({ 'display': 'none' });
 
 		header.value = "";
 		description.value = "";
-    }); 
+    });
+    
+    $('.close').click(function(){
+        var form = $('#addEvent-form');
+        form.hide();
+    });
 
     createTable(currentDate);
     setInnerHTML(currentDate);

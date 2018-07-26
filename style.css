@@ -83,8 +83,8 @@ label{
 }*/
 
 .calendar{
-    margin: 30px 100px;
-    margin-bottom: 0;
+    margin: 30px auto;
+    max-width: 1200px;
 }
 
 table{
@@ -98,7 +98,7 @@ table{
 }
 
 td, th{
-    font-size: 16px;
+    font-size: 1.3vmax;
     color: rgb(180, 177, 177);
     height: 75px;
     width: 150px;
@@ -127,7 +127,7 @@ h3{
 #addEvent-form{
     background: rgb(230, 230, 230);
     width: 300px;
-    height: 300px;
+    height: 320px;
     position: absolute;
     z-index: 100;
     left: 120px;
@@ -140,7 +140,6 @@ h3{
 
 input[type='text']{
     width: 250px;
-    margin-top: 30px;
     height: 15px;
     padding: 4px;
     font-size: 14px;
@@ -160,7 +159,7 @@ textarea{
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
     padding: 5px;
-    margin-top: 10px;
+    margin: 10px;
 }
 
 input[name="event"],
@@ -176,13 +175,31 @@ input[name="event"],
 }
 
 .close{
-    float: right;
-    height: 15px;
-    width: 15px;
-    margin: 15px;
-    padding: 0;
-    
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.3;
+    cursor: pointer;
 }
+.close:hover {
+    opacity: 1;
+}
+.close:before, .close:after {
+    position: absolute;
+    content: ' ';
+    height: 20px;
+    width: 2px;
+    background-color: #333;
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
+}   
+        
 
 .icon-close::after{
     content: "\2716";
@@ -207,8 +224,8 @@ input[name="event"],
     }
 
     td,th{
-        width: 100px;
-        font-size: 13px;
+        max-width: 100px;
+     /*   font-size: 13px;*/
         
     }
 
@@ -223,16 +240,40 @@ input[name="event"],
     }
    
     td,th{
-        width: 50px;
+        max-width: 50px;
         font-size: 10px;
     }
 
     .add, .refresh{
         width: 80px;
-        font-size: 12px;
+     /*   font-size: 12px;*/
     }
 
     input[type=text]{
         width: 175px;
     }
+  }
+
+  @media screen and (max-width: 500px) {
+    .calendar{
+        margin: 25px;
+    }
+   
+    td,th{
+        max-width: 50px;
+      /*  font-size: 8px;*/
+    }
+
+    .add, .refresh{
+        width: 80px;
+     /*   font-size: 12px;*/
+    }
+
+    input[type=text]{
+        width: 175px;
+    }
+  }
+
+  @media screen and (max-width: 400px){
+
   }
