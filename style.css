@@ -242,6 +242,7 @@ input[name="event"],
     td,th{
         max-width: 60px;
         font-size: 10px;
+        padding: 5px;
     }
 
     input[type=text]{
@@ -256,9 +257,3 @@ input[name="event"],
         font-size: 8px;
     }
   }
-
-  @media screen and (max-width: 480px) {
-   
-    td,th{
-        font-size: 7px;
-    }
