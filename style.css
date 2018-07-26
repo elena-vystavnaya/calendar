@@ -255,5 +255,6 @@ input[name="event"],
     td,th{
         max-width: 50px;
         font-size: 8px;
+        padding: 5px;
     }
   }
